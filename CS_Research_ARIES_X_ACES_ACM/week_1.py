@@ -13,7 +13,7 @@ def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
         theta -= lr * gradient
     return theta
 #uses less memory
-def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
+def linearRegression_1(X: np.array, Y: np.array, lr: float, lambda_: float):
     theta = np.zeros(X.shape[1])
     for i in range(1000):
         gradient = -X.T @ (Y - X @ theta) + lambda_ * theta
@@ -21,7 +21,7 @@ def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
     return theta
 
 #LINEAR REGRESSION in MATRIX FORM WITH NEWTON RALPHSON METHOD, CAN BE DERIVED BY DOING DERIVATIVE = 0
-def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float): 
+def linearRegression_2(X: np.array, Y: np.array, lr: float, lambda_: float): 
     I = np.eye(X.shape[1])   # identity matrix 
     I[0, 0] = 0  
     X_TX_LAMBDA_INV = np.linalg.inv((X.T)@X + lambda_ * I)
