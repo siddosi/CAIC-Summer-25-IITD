@@ -2,14 +2,33 @@ import numpy as np
 import pandas as pd
 
 
+#WITH GRADIENT DESCENT 
+
+def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
+    theta = np.zeros(X.shape[1])
+    prev = np.ones(X.shape[1])
+    while np.linalg.norm(theta - prev) > 0.01:
+        prev = theta.copy()
+        gradient = -X.T @ (Y - X @ theta) + lambda_ * theta
+        theta -= lr * gradient
+    return theta
+#uses less memory
+def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
+    theta = np.zeros(X.shape[1])
+    for i in range(1000):
+        gradient = -X.T @ (Y - X @ theta) + lambda_ * theta
+        theta -= lr * gradient
+    return theta
+
+#LINEAR REGRESSION in MATRIX FORM WITH NEWTON RALPHSON METHOD, CAN BE DERIVED BY DOING DERIVATIVE = 0
+def linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float): 
+    I = np.eye(X.shape[1])   # identity matrix 
+    I[0, 0] = 0  
+    X_TX_LAMBDA_INV = np.linalg.inv((X.T)@X + lambda_ * I)
+    return X_TX_LAMBDA_INV@(X.T)@Y
 
 
-def  linearRegression(X: np.array, Y: np.array, lr: float, lambda_: float):
-    X_TX_INV = np.linalg.inv((X.T)@X)
-    return X_TX_INV@(X.T)@Y
-
-
-
+'''EXTRA THINGS NOT RELEVANT TO WHAT WAS ASKED FOR SUBMISSION'''
 
 X_train, Y_train = load_dataset('ds4_train.csv' , add_intercept=True)
 
@@ -22,7 +41,7 @@ y_predict = x_test@(linearRegression(X_train,Y_train,0.01,0))
 print(y_predict)
     
     
-#robust dataset loader taken from cs229 
+#robust dataset loader taken from cs229 if needed 
 
    
 def load_dataset(csv_path, label_col='y', add_intercept=False):
