@@ -1,4 +1,4 @@
-'''client = Groq(api_key = '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' )
+'''client = Groq(api_key = 'secret' )
 
 
 #Normal llama two way communication, the next one includes 2 LLMs taliking
@@ -47,7 +47,7 @@ for i in range(2):
 #with 2 LLMS
 
 
-'''client = Groq(api_key = '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' )
+'''client = Groq(api_key = 'secret' )
 
 
 #Normal llama two way communication, the next one includes 2 LLMs taliking
