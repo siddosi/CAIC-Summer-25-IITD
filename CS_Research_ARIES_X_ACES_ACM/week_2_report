@@ -1,1 +1,5 @@
+Basic neural newtork with one hidden layer and 2 epoch gave 85% accuracy
 
+ConvNeuralNetwork with 3 by 3 filter and 7 epoch  gives 88.7% accuracy 
+
+improving by 3.7 % is great in such a large data set 
