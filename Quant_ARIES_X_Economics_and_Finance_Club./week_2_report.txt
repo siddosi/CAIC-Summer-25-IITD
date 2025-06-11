@@ -1,1 +1,7 @@
+While playing with amzn stock data from 2007 to 2017, i divided model to 20%test haii 80% train 
+Used basic 3 models , linear regression , random forest, arima
+
+random forest and arima gave very high rmse (aroudn 250 for both) which was unexpected 
+linear regression gave the best rmse (8) and i used it for simulating buy and sell 
+it made 92 % return with basic buy and sell strategy
 
