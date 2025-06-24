@@ -1,0 +1,4 @@
+
+
+pdf --> extract raw text --> chunk the text ( how? ) --> convert to vector (how?, sentance tranformers) --> store in qdrant text --> 
+input --> convert to vector (how?, sentance tranformers) --> match top 5 (how?) cosine similar eith Qdrant --> give to LLM --> output
